@@ -1,0 +1,38 @@
+.header{
+    display: flex;
+    align-items: center;
+    height: 10vh;
+    justify-content: space-between;
+}
+
+.left{
+    min-width: 50%;
+    display: inline-flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.right{
+    display: inline-flex;
+    align-items: center;
+}
+
+.logo{
+    max-width: 270px;
+    margin-right: 20px;
+}
+
+.star{
+    width: 18px;
+}
+
+.space{
+    margin-right: 20px;
+    margin-top: 20px;
+}
+.button{
+    background-color: rgba(#000,#000,#000, 0.5);
+    border-radius: 30px;
+    border: none;
+    padding: 15px 20px;
+}
