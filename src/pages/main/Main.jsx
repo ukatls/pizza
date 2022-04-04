@@ -22,22 +22,21 @@ export default function Main() {
     dots: true,
     infinite: true,
     speed: 500,
-    slidesToShow: 4,
+    slidesToShow: 3,
     slidesToScroll: 1,
   };
 
   return (
     <div >
-      <div className={css.slider}>
-        <Slider {...settings} className="container">
-          <div className={css.slide}><h3>Как получить кешбек 5%</h3></div>
-          <div className={css.slide}><h3>Как получить кешбек 5%</h3></div>
-          <div className={css.slide}><h3>Как получить кешбек 5%</h3></div>
-          <div className={css.slide}><h3>Как получить кешбек 5%</h3></div>
-          <div className={css.slide}><h3>Как получить кешбек 5%</h3></div>
-          <div className={css.slide}><h3>Как получить кешбек 5%</h3></div>
-          <div className={css.slide}><h3>Как получить кешбек 5%</h3></div>
-          <div className={css.slide}><h3>Как получить кешбек 5%</h3></div>
+      <div className={`container ${css.slider}`}>
+        <Slider {...settings}>
+          <div><div className={css.slide}><h3>Как получить кешбек 5%</h3></div></div>
+          <div><div className={css.slide}><h3>Как получить кешбек 5%</h3></div></div>
+          <div><div className={css.slide}><h3>Как получить кешбек 5%</h3></div></div>
+          <div><div className={css.slide}><h3>Как получить кешбек 5%</h3></div></div>
+          <div><div className={css.slide}><h3>Как получить кешбек 5%</h3></div></div>
+          <div><div className={css.slide}><h3>Как получить кешбек 5%</h3></div></div>
+          <div><div className={css.slide}><h3>Как получить кешбек 5%</h3></div></div>
         </Slider>
       </div>
       <div className={`container`}>

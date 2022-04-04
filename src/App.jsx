@@ -12,7 +12,6 @@ import { useState, useEffect } from 'react';
 export default function App() {
   const [ pizzaArray, setPizzaArray] = useState([]);
  
-
   useEffect(() => {
     fetch(baseUrl + houseApi)
       .then((resp) => resp.json())

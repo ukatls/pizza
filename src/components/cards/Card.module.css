@@ -43,6 +43,15 @@
 }
 
 .wrapper >h2:hover{
-    color: #ff7a59;
+    color: rgba(252, 107, 55, 0.923);
     background:#fff;
+}
+
+.button{
+    background-color: rgba(252, 107, 55, 0.923);
+    border: navajowhite 2px;
+    padding: 10px 15px;
+    margin-left: 20px;
+    border-radius: 10px;
+    margin-bottom: 20px;
 }
