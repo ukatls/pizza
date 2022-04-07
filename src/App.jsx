@@ -6,25 +6,33 @@ import Main from './pages/main/Main';
 import About from './pages/about/About';
 import Footer from './components/footer/Footer';
 import Navbar from './components/navbar/Navbar';
-import { baseUrl, houseApi } from './constants';
 import { useState, useEffect } from 'react';
 
 export default function App() {
-  const [ pizzaArray, setPizzaArray] = useState([]);
+  const [ basket, setBasket] = useState([]);
+
+  const addToBasket = (pizza) => {
+    setBasket([...basket,pizza])
+  }
  
   useEffect(() => {
-    fetch(baseUrl + houseApi)
-      .then((resp) => resp.json())
-      .then((data) => (setPizzaArray(data)));
-  }, []);
+    const data = JSON.parse(localStorage.getItem('basket'))
+    setBasket(data)
+  }, []) 
+
+  
+  useEffect(() => {
+    localStorage.setItem('basket',JSON.stringify(basket))
+  }, [basket])
+
 
   return (
     <div className='App'>
       <BrowserRouter>
         <Header/>
-        <Navbar basket={pizzaArray}/>
+        <Navbar basket={basket}/>
           <Routes>
-            <Route path='/' element={<Main/>} />
+            <Route path='/' element={<Main addToBasket={addToBasket} />} />
             <Route path='/aboute-us' element={<About/>} />
           </Routes>
         <Footer/>

@@ -5,15 +5,15 @@ import Slider from "react-slick";
 import Card from "../../components/cards/Card";
 import { useState } from 'react';
 import { useEffect } from 'react';
-import { baseUrl, houseApi } from './../../constants/index';
+import { baseUrl, pizzaApi } from './../../constants/index';
 
-export default function Main() {
+export default function Main({addToBasket}) {
   
   const [ pizzaArray, setPizzaArray] = useState([]);
  
 
   useEffect(() => {
-    fetch(baseUrl + houseApi)
+    fetch(baseUrl + pizzaApi)
       .then((resp) => resp.json())
       .then((data) => (setPizzaArray(data)));
   }, []);
@@ -43,8 +43,9 @@ export default function Main() {
         <h1>Пицца</h1>
         <div className={css.card}>
           {pizzaArray.map((item) => (
-            <Card 
+            <Card key={item.id}
             {...item}
+            addToBasket={addToBasket}
             />
           ))}
         </div>

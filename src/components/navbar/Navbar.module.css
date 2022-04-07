@@ -45,7 +45,7 @@
 }
 .basketWrapper{
     background: rgb(243, 243, 247);
-    width: 430px;
+    width: 500px;
     height: 100vh;
     position: absolute;
     top: 0;
@@ -69,4 +69,7 @@
 
 .closeModal:hover{
     transform: translate(0,-50%) rotate(360deg);
+}
+.h2{
+    margin: 20px 25px;
 }

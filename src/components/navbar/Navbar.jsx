@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import css from "./Navbar.module.css";
 
@@ -12,6 +12,7 @@ export default function Navbar({ basket }) {
     });
     return price;
   };
+ 
 
   return (
     <>
@@ -20,7 +21,7 @@ export default function Navbar({ basket }) {
           <Link to={"/"}>Пицца</Link>
           <Link to={"/aboute-us"}>О нас</Link>
         </div>
-        <button onClick={onModal}>корзина</button>
+        <button onClick={onModal}>корзина | {basket.length}</button>
       </nav>
       <div
         onClick={onModal}
@@ -33,10 +34,15 @@ export default function Navbar({ basket }) {
             src="https://cdn-icons-png.flaticon.com/128/143/143604.png"
             alt="close"
           />
-          <h2>
+          <h2 className={css.h2}>
             {" "}
             {basket.length} товара на {getAllPrice()} сом
           </h2>
+          <div>
+            {
+              basket.map((item) => <div>{item.name}</div>)
+            }
+          </div>
         </div>
       </div>
     </>
