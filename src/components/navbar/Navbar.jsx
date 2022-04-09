@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
+import CardBasket from "../cards/CardBasket";
 import css from "./Navbar.module.css";
 
 export default function Navbar({ basket }) {
@@ -12,7 +13,6 @@ export default function Navbar({ basket }) {
     });
     return price;
   };
- 
 
   return (
     <>
@@ -39,9 +39,13 @@ export default function Navbar({ basket }) {
             {basket.length} товара на {getAllPrice()} сом
           </h2>
           <div>
-            {
-              basket.map((item) => <div>{item.name}</div>)
-            }
+            {basket.map((item) => (
+              <div>
+                
+                {item.name}
+                
+              </div>
+            ))}
           </div>
         </div>
       </div>

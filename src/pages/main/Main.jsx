@@ -42,12 +42,7 @@ export default function Main({addToBasket}) {
       <div className={`container`}>
         <h1>Пицца</h1>
         <div className={css.card}>
-          {pizzaArray.map((item) => (
-            <Card key={item.id}
-            {...item}
-            addToBasket={addToBasket}
-            />
-          ))}
+          {pizzaArray.map((item) => ( <Card key={item.id} {...item} addToBasket={addToBasket} />))}
         </div>
       </div>
     </div>

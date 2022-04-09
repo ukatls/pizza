@@ -1,8 +1,10 @@
 import css from "./Card.module.css";
+import { Link } from 'react-router-dom';
 
 export default function Card({
   addToBasket,
   name,
+  isAdmin,
   imgUrl,
   description,
   id,
@@ -26,10 +28,17 @@ export default function Card({
       <h3>{name}</h3>
       <p className={css.p}>{description}</p>
       <h2>$ {props.price}</h2>
-
-      <button onClick={onBasket} className={css.button}>
-        Выбрать
-      </button>
+      {isAdmin ? (
+        <Link to={"/create-pizza"}>
+          <button className={css.button}>
+            Изменить
+          </button>
+        </Link>
+      ) : (
+        <button onClick={onBasket} className={css.button}>
+          Выбрать
+        </button>
+      )}
     </div>
   );
 }

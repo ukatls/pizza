@@ -30,3 +30,9 @@
     max-width: 1320px; 
   } 
 }
+.card{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  grid-gap: 1em;
+}
