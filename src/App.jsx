@@ -19,7 +19,7 @@ export default function App() {
   }
  
   useEffect(() => {
-    const data = JSON.parse(localStorage.getItem('basket'))
+    const data = JSON.parse(localStorage.getItem('basket')) || []
     setBasket(data)
   }, []) 
 

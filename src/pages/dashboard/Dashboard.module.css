@@ -1,7 +1,16 @@
+.img{
+    width: 100px;
+    height: 100px;
+}
 .addPizza{
-    border: 2px solid black;
-    padding: 20px;
-    width: 200px;
+    width: 350px;
+    height: 350px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid rgb(188, 188, 188);
+    border-radius: 30px;
+    margin: 20px 0;
 }
 
 .addPizza > img {

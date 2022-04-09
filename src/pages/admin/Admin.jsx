@@ -28,6 +28,7 @@ export default function Admin() {
     <div className='container'>
         <form onSubmit={submit} className={css.formWrapper}>
             <input 
+            className={css.inputs}
             required  
             type="text" 
             placeholder='Login' 
@@ -35,14 +36,17 @@ export default function Admin() {
             onChange={handleChange}
             />
             <input 
+            className={css.inputs}
             required  
             type={passwordType ? 'text' : 'password'} 
             placeholder='Password' 
             value={password} 
             onChange={(e) => setPassword(e.target.value)}
             />
-            <div onClick={() => setPasswordType(!passwordType)}>show</div>
-            <button>Enter</button>
+            <div className={css.imgWrapper} onClick={() => setPasswordType(!passwordType)}>
+                <img className={css.img} src="https://cdn-icons-png.flaticon.com/512/1250/1250766.png" alt="#" />
+            </div>
+            <button className={css.inputs}>Enter</button>
         </form>
     </div>
   )

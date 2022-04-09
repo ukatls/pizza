@@ -5,3 +5,12 @@
     margin: 0 auto;
     grid-gap: 20px;
 }
+.inputs{
+    padding: 15px 20px;
+}
+.img{
+    width: 50px;
+}
+.imgWrapper{
+    text-align: end;
+}
