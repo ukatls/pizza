@@ -1,5 +1,5 @@
 import css from "./Card.module.css";
-import { Link } from 'react-router-dom';
+import { Link } from "react-router-dom";
 
 export default function Card({
   addToBasket,
@@ -25,20 +25,22 @@ export default function Card({
           alt="#"
         />
       </div>
-      <h3>{name}</h3>
-      <p className={css.p}>{description}</p>
-      <h2>$ {props.price}</h2>
-      {isAdmin ? (
-        <Link to={"/create-pizza"}>
-          <button className={css.button}>
-            Изменить
+      <div className={css.cardDesc}>
+        <h3>{name}</h3>
+        <p className={css.p}>{description}</p>
+        <div className={css.btnAndPrice}>
+        <h2>$ {props.price}</h2>
+        {isAdmin ? (
+          <Link to={"/create-pizza"}>
+            <button className={css.button}>Изменить</button>
+          </Link>
+        ) : (
+          <button onClick={onBasket} className={css.button}>
+            Выбрать
           </button>
-        </Link>
-      ) : (
-        <button onClick={onBasket} className={css.button}>
-          Выбрать
-        </button>
-      )}
+        )}
+        </div>
+      </div>
     </div>
   );
 }

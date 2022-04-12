@@ -28,9 +28,9 @@ export default function Header() {
             <div>Звонок по телефону</div>
           </div>
         </div>
-        <div className={css.right}>
+        <Link to="/admin" className={css.right}>
           <button className={css.button}>Войти</button>
-        </div>
+        </Link>
       </div>
     </div>
   );
