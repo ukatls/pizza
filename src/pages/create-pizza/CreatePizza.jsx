@@ -3,6 +3,7 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { baseUrl, pizzaApi } from './../../constants/index';
 import imageDouwland from "../../components/assets/images/addImg.svg"
+import { Api } from "../../api/Api";
 
 export default function CreatePizza() {
   const [name, setName] = useState("");
@@ -20,13 +21,11 @@ export default function CreatePizza() {
     formData.append("price", price)
     formData.append("description", desc)
     formData.append("img", image)
-    fetch(baseUrl+ pizzaApi, {
-      method: "POST",
-      body: formData
+
+    Api.post(pizzaApi,{name,price,desc})
+    .finally(() => {
+      navigate('/dashboard')
     })
-      .finally(() => {
-        navigate('/dashboard')
-      })
   };
 
   const nameChange = (e) => {
@@ -100,9 +99,8 @@ export default function CreatePizza() {
             rows="10"
           ></textarea>
         </label>
-        
+        <button className={css.button}>Создать Пиццу</button>
       </form>
     </div>
   );
 }
-<button className={css.button}>Создать Пиццу</button>
