@@ -2,6 +2,7 @@ import css from "./CreatePizza.module.css";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { baseUrl, pizzaApi } from './../../constants/index';
+import imageDouwland from "../../components/assets/images/addImg.svg"
 
 export default function CreatePizza() {
   const [name, setName] = useState("");
@@ -9,7 +10,6 @@ export default function CreatePizza() {
   const [desc, setDesc] = useState("");
   const [image, setImage] = useState("");
   const [imageUrl, setImageUrl] = useState("");
-  const imageDouwland = "https://cdn-icons.flaticon.com/png/512/3694/premium/3694442.png?token=exp=1649505649~hmac=d05b6b2d62fc1637697019434091bbf8"
 
   const navigate = useNavigate()
 
