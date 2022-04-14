@@ -1,8 +1,8 @@
 import css from "./Card.module.css";
 import { Link } from "react-router-dom";
+import { useDispatch } from 'react-redux';
 
 export default function Card({
-  addToBasket,
   name,
   isAdmin,
   imgUrl,
@@ -10,8 +10,13 @@ export default function Card({
   id,
   ...props
 }) {
+  const dispatch = useDispatch();
   const onBasket = () => {
-    addToBasket({ name, imgUrl, description, id, ...props });
+    addToBasket({name,description,imgUrl, ...props});
+    dispatch({
+      type: 'SET_NEW_PIZZA',
+      data: {name,description,imgUrl, ...props}
+    })
   };
   return (
     <div className={css.wrapper}>

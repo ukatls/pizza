@@ -1,8 +1,10 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import css from "./Navbar.module.css";
+import { useSelector } from 'react-redux';
 
-export default function Navbar({ basket }) {
+export default function Navbar() {
+  const basket = useSelector((state)=> state.basket.data)
   const [modal, setModal] = useState(false);
   const onModal = () => setModal(!modal);
   const getAllPrice = () => {
