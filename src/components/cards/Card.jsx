@@ -1,6 +1,7 @@
 import css from "./Card.module.css";
 import { Link } from "react-router-dom";
 import { useDispatch } from 'react-redux';
+import { SET_NEW_PIZZA } from "../../redux/actionType";
 
 export default function Card({
   name,
@@ -12,9 +13,8 @@ export default function Card({
 }) {
   const dispatch = useDispatch();
   const onBasket = () => {
-    addToBasket({name,description,imgUrl, ...props});
     dispatch({
-      type: 'SET_NEW_PIZZA',
+      type: SET_NEW_PIZZA,
       data: {name,description,imgUrl, ...props}
     })
   };

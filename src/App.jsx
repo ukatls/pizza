@@ -6,32 +6,28 @@ import Main from "./pages/main/Main";
 import About from "./pages/about/About";
 import Footer from "./components/footer/Footer";
 import Navbar from "./components/navbar/Navbar";
-import { useState, useEffect } from "react";
+import { useEffect } from "react";
 import Admin from "./pages/admin/Admin";
 import Dashboard from "./pages/dashboard/Dashboard";
 import CreatePizza from "./pages/create-pizza/CreatePizza";
 import { Api } from "./api/Api";
 import { pizzaApi } from "./constants";
 import { useDispatch } from "react-redux";
+import { SET_PIZZAS } from "./redux/actionType";
 
 export default function App() {
 
   const dispatch = useDispatch();
 
   useEffect(() => {
-    // const data = JSON.parse(localStorage.getItem("basket")) || [];
     
     Api.get(pizzaApi).then((response) => {
       dispatch({ 
-        type: "SET_PIZZAS", 
+        type: SET_PIZZAS, 
         data: response.data 
       })
     });
   }, []);
-
-  // useEffect(() => {
-  //   localStorage.setItem("basket", JSON.stringify(basket));
-  // }, [basket]);
 
   return (
     <div className="App">
