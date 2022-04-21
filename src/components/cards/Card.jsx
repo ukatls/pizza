@@ -1,6 +1,6 @@
 import css from "./Card.module.css";
 import { Link } from "react-router-dom";
-import { useDispatch } from 'react-redux';
+import { useDispatch } from "react-redux";
 import { ACsetNewPizza } from "../../redux/actionCreators";
 
 export default function Card({
@@ -13,7 +13,7 @@ export default function Card({
 }) {
   const dispatch = useDispatch();
   const onBasket = () => {
-    dispatch(ACsetNewPizza({name,description,imgUrl, ...props}))
+    dispatch(ACsetNewPizza({ name, description, imgUrl, ...props }));
   };
   return (
     <div className={css.wrapper}>
@@ -31,16 +31,16 @@ export default function Card({
         <h3>{name}</h3>
         <p className={css.p}>{description}</p>
         <div className={css.btnAndPrice}>
-        <h2>$ {props.price}</h2>
-        {isAdmin ? (
-          <Link to={"/create-pizza"}>
-            <button className={css.button}>Изменить</button>
-          </Link>
-        ) : (
-          <button onClick={onBasket} className={css.button}>
-            Выбрать
-          </button>
-        )}
+          <h2>$ {props.price}</h2>
+          {isAdmin ? (
+            <Link to={"/create-pizza"}>
+              <button className={css.button}>Изменить</button>
+            </Link>
+          ) : (
+            <button onClick={onBasket} className={css.button}>
+              Выбрать
+            </button>
+          )}
         </div>
       </div>
     </div>

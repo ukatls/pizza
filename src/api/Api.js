@@ -1,6 +1,12 @@
 import axios from "axios";
-import { baseUrl } from "../constants";
+import { baseUrl, pizzaApi } from "../constants";
 
-export const Api = axios.create({
+const http = axios.create({
     baseURL: baseUrl
 })
+
+
+export default {
+    getPizzas: ()=> http.get(pizzaApi),
+    createPizza: (data)=> http.post(pizzaApi, data)
+}

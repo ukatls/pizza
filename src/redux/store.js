@@ -5,6 +5,7 @@ import { pizzaReducer } from "./pizzaReduser";
 import { composeWithDevTools } from "redux-devtools-extension";
 import reduxThunk from "redux-thunk";
 
+
 const rootReducer = combineReducers({
     pizza: pizzaReducer,
     basket:basketReducer,

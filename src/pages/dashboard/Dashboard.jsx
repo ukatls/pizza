@@ -13,7 +13,7 @@ export default function Dashboard() {
           <Link to={"/create-pizza"} className={css.addPizza}>
             <img
               className={css.img}
-              src="https://cdn-icons.flaticon.com/png/512/3792/premium/3792702.png?token=exp=1649499182~hmac=d54bbb5c456835304d5ea62ebd828def"
+              src="https://img.icons8.com/external-kmg-design-flat-kmg-design/344/external-image-user-interface-kmg-design-flat-kmg-design.png"
               alt="#"
             />
           </Link>
