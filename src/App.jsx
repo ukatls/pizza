@@ -12,28 +12,30 @@ import Dashboard from "./pages/dashboard/Dashboard";
 import CreatePizza from "./pages/create-pizza/CreatePizza";
 import { Api } from "./api/Api";
 import { pizzaApi } from "./constants";
-import { useDispatch } from "react-redux";
-import { SET_PIZZAS } from "./redux/actionType";
+import { useDispatch, useSelector } from "react-redux";
+import { ACsetPending, ACsetPizza } from "./redux/actionCreators";
 
 export default function App() {
-
+  const pending = useSelector((state) => state.pizza.pending);
   const dispatch = useDispatch();
 
   useEffect(() => {
-    
-    Api.get(pizzaApi).then((response) => {
-      dispatch({ 
-        type: SET_PIZZAS, 
-        data: response.data 
-      })
+    Api.get(pizzaApi)
+    .finally(()=>{
+      dispatch(ACsetPending())
+    })
+    .then((response) => {
+      dispatch(ACsetPizza(response.data));
     });
-  }, []);
-
+  }, [dispatch]);
+  if (pending) {
+    return <h1>Loading...</h1>;
+  }
   return (
     <div className="App">
       <BrowserRouter>
         <Header />
-        <Navbar/>
+        <Navbar />
         <Routes>
           <Route path="/" element={<Main />} />
           <Route path="/aboute-us" element={<About />} />

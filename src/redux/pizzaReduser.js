@@ -1,7 +1,8 @@
-import { SET_PIZZAS } from "./actionType";
+import { SET_PENDING, SET_PIZZAS } from "./actionType";
 
 const initialState = {
     data:  [],
+    pending: true
   }
 
 export const pizzaReducer = (
@@ -11,6 +12,8 @@ export const pizzaReducer = (
     switch (action.type) {
       case SET_PIZZAS:
         return { ...state, data: action.data };
+      case SET_PENDING:
+        return {...state, pending: false}
       default:
         return state;
     }

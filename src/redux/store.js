@@ -1,16 +1,16 @@
 
-import { combineReducers, createStore } from "redux";
+import { applyMiddleware, combineReducers, createStore } from "redux";
 import { basketReducer } from "./basketReducer";
-import { loginReducer } from "./loginReducer";
 import { pizzaReducer } from "./pizzaReduser";
-
+import { composeWithDevTools } from "redux-devtools-extension";
+import reduxThunk from "redux-thunk";
 
 const rootReducer = combineReducers({
     pizza: pizzaReducer,
     basket:basketReducer,
 })
 
-export const store = createStore(rootReducer);
+export const store = createStore(rootReducer, composeWithDevTools(applyMiddleware(reduxThunk)));
 
 store.subscribe(() => {
   const state = store.getState()
