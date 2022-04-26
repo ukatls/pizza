@@ -3,6 +3,8 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import imageDouwland from "../../components/assets/images/addImg.svg";
 import Api from "../../api/Api";
+import { setPizzaAC } from "../../redux/actionCreators";
+import { useDispatch } from "react-redux";
 
 export default function CreatePizza() {
   const [name, setName] = useState("");
@@ -12,6 +14,7 @@ export default function CreatePizza() {
   const [imageUrl, setImageUrl] = useState("");
 
   const navigate = useNavigate();
+  const dispatch = useDispatch();
 
   const submit = (e) => {
     e.preventDefault();
@@ -24,9 +27,9 @@ export default function CreatePizza() {
     Api.createPizza({ name, price, desc }).finally(() => {
       navigate("/dashboard");
     })
-    .then((res)=>{
-      console.log(res)
-    })
+    .then((resp) => { 
+      dispatch(setPizzaAC(resp.data));
+    });
   };
 
   const nameChange = (e) => {

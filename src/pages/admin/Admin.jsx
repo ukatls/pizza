@@ -2,6 +2,7 @@ import React from 'react'
 import css from './Admin.module.css'
 import { useState } from 'react';
 import {  useNavigate } from 'react-router-dom';
+import Api from '../../api/Api';
 
 export default function Admin() {
 
@@ -15,8 +16,11 @@ export default function Admin() {
 
     const submit = (e) => {
         e.preventDefault();
-        // TODO: add login logit
-        rout('/dashboard')
+        Api.auth({
+            login: login,
+            password: password
+        })
+        // rout('/dashboard')
     }
     
 

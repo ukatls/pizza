@@ -1,4 +1,4 @@
-import { SET_PENDING, SET_PIZZAS } from "./actionType";
+import { SET_PENDING, SET_PIZZA, SET_PIZZAS } from "./actionType";
 
 const initialState = {
     data:  [],
@@ -10,6 +10,8 @@ export const pizzaReducer = (
     action
   ) => {
     switch (action.type) {
+      case SET_PIZZA:
+        return {...state, data: [...state.data, action.payload]}
       case SET_PIZZAS:
         return { ...state, data: action.data };
       case SET_PENDING:

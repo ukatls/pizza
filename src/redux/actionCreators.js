@@ -1,9 +1,14 @@
 import Api  from "../api/Api"
-import { SET_NEW_PIZZA, SET_PENDING, SET_PIZZAS } from "./actionType"
+import { SET_NEW_PIZZA, SET_PENDING, SET_PIZZA, SET_PIZZAS } from "./actionType"
 
-export const ACsetPizza = (data) => ({
+export const ACsetPizzas = (data) => ({
     type: SET_PIZZAS,
     data: data
+})
+
+export const setPizzaAC = (data) => ({
+    type: SET_PIZZA,
+    payload: data
 })
 
 export const ACsetPending = () => ({
@@ -22,7 +27,7 @@ export const getPizzaAC = () => {
         const res = await Api.getPizzas()
         dispatch(ACsetPending())    // .finally(()=>{dispatch(ACsetPending())})
         if(res.status === 200){
-            dispatch(ACsetPizza(res.data));    // .then((response) => { dispatch(ACsetPizza(response.data));});
+            dispatch(ACsetPizzas(res.data));    // .then((response) => { dispatch(ACsetPizza(response.data));});
         }
     }
 }
