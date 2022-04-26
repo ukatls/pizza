@@ -1,8 +1,9 @@
 import React from 'react'
 import css from './Admin.module.css'
 import { useState } from 'react';
-import {  useNavigate } from 'react-router-dom';
 import Api from '../../api/Api';
+import {  setAuthAC } from '../../redux/actionCreators';
+import { useDispatch } from 'react-redux';
 
 export default function Admin() {
 
@@ -10,8 +11,8 @@ export default function Admin() {
     const [ password, setPassword ] = useState('');
     const [ passwordType, setPasswordType ] = useState(false);
 
+    const dispatch = useDispatch()
 
-    const rout = useNavigate();
 
 
     const submit = (e) => {
@@ -20,7 +21,13 @@ export default function Admin() {
             login: login,
             password: password
         })
-        // rout('/dashboard')
+        .then((resp) => { 
+            console.log(resp);
+            if(resp.data?.token){
+                dispatch(setAuthAC(resp.data));
+            }
+        });
+        
     }
     
 

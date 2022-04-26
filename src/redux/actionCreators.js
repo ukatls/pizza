@@ -1,5 +1,5 @@
 import Api  from "../api/Api"
-import { SET_NEW_PIZZA, SET_PENDING, SET_PIZZA, SET_PIZZAS } from "./actionType"
+import { SET_NEW_PIZZA, SET_PENDING, SET_PIZZA, SET_PIZZAS, AUTH_SUCCESS } from "./actionType"
 
 export const ACsetPizzas = (data) => ({
     type: SET_PIZZAS,
@@ -15,12 +15,14 @@ export const ACsetPending = () => ({
     type: SET_PENDING
 })
 
-
 export const ACsetNewPizza = (data) => ({
     type: SET_NEW_PIZZA,
     data: data
 })
-    
+export const setAuthAC = (data) => ({
+    type: AUTH_SUCCESS,
+    data: data
+})
 
 export const getPizzaAC = () => {
     return async (dispatch) => {

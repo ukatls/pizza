@@ -6,8 +6,9 @@ const http = axios.create({
 })
 
 const api = axios.create({
-    baseURL: "https://tranquil-retreat-96647.herokuapp.com/"
+    baseURL: "http://solid.lol/"
 })
+
 
 
 export default {

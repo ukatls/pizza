@@ -1,6 +1,6 @@
 import React from "react";
 import "./App.css";
-import { BrowserRouter, Route, Routes } from "react-router-dom";
+import { BrowserRouter, Navigate, Route, Routes } from "react-router-dom";
 import Header from "./components/header/Header";
 import Main from "./pages/main/Main";
 import About from "./pages/about/About";
@@ -12,6 +12,15 @@ import Dashboard from "./pages/dashboard/Dashboard";
 import CreatePizza from "./pages/create-pizza/CreatePizza";
 import { useDispatch, useSelector } from "react-redux";
 import { getPizzaAC } from "./redux/actionCreators";
+
+const PrivateRoute = ( {Component} ) => {
+  const auth = useSelector((state)=>state.auth.data?.token)
+  if(!auth){
+    return <Navigate to="/admin"/>
+  }else{
+    return <Component />
+  }
+}
 
 export default function App() {
   const pending = useSelector((state) => state.pizza.pending);
@@ -34,8 +43,8 @@ export default function App() {
           <Route path="/" element={<Main />} />
           <Route path="/aboute-us" element={<About />} />
           <Route path="/admin" element={<Admin />} />
-          <Route path="/dashboard" element={<Dashboard />} />
-          <Route path="/create-pizza" element={<CreatePizza />} />
+          <Route path="/dashboard" element={<PrivateRoute Component={Dashboard} />} />
+          <Route path="/create-pizza" element={<PrivateRoute Component={CreatePizza} />} />
         </Routes>
         <Footer />
       </BrowserRouter>

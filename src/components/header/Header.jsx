@@ -3,8 +3,12 @@ import css from "./Header.module.css";
 import { Link } from "react-router-dom";
 import logo from "../assets/images/logo.svg";
 import star from "../assets/images/star.svg";
+import { useSelector } from "react-redux";
 
 export default function Header() {
+
+  const auth = useSelector( (state) => state.auth.data)
+
   return (
     <div className="container">
       <div className={css.header}>
