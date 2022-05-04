@@ -1,8 +1,7 @@
 import React from 'react'
 import css from './Admin.module.css'
 import { useState } from 'react';
-import Api from '../../api/Api';
-import {  setAuthAC } from '../../redux/actionCreators';
+import {  authAC } from '../../redux/actionCreators';
 import { useDispatch } from 'react-redux';
 
 export default function Admin() {
@@ -17,17 +16,7 @@ export default function Admin() {
 
     const submit = (e) => {
         e.preventDefault();
-        Api.auth({
-            login: login,
-            password: password
-        })
-        .then((resp) => { 
-            console.log(resp);
-            if(resp.data?.token){
-                dispatch(setAuthAC(resp.data));
-            }
-        });
-        
+        dispatch( authAC({login,password}));
     }
     
 

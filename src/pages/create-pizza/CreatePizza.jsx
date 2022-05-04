@@ -21,10 +21,10 @@ export default function CreatePizza() {
     const formData = new FormData();
     formData.append("name", name);
     formData.append("price", price);
-    formData.append("description", desc);
-    formData.append("img", image);
+    formData.append("info", desc);
+    formData.append("image", image);
 
-    Api.createPizza({ name, price, desc }).finally(() => {
+    Api.createPizza(formData).finally(() => {
       navigate("/dashboard");
     })
     .then((resp) => { 

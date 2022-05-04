@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import css from "./Navbar.module.css";
 import { useSelector } from 'react-redux';
@@ -41,7 +41,7 @@ export default function Navbar() {
           </h2>
           <div>
             {basket.map((item) => (
-              <div className={css.cardNavWrapper}>
+              <div key={item.id} className={css.cardNavWrapper}>
                 <img src={item.imgUrl} alt="#" />
                 <div>
                   <h2 className={css.h2}>{item.name}</h2>

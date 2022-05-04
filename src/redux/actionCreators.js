@@ -33,3 +33,16 @@ export const getPizzaAC = () => {
         }
     }
 }
+
+export const authAC = (data) => {
+    return async (dispatch) => {
+        Api.auth(data)
+        .then((resp) => { 
+            console.log(resp);
+            if(resp.data?.token){
+                dispatch(setAuthAC(resp.data));
+            }
+        });
+    }
+}
+
