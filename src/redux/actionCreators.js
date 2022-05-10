@@ -29,7 +29,7 @@ export const getPizzaAC = () => {
         const res = await Api.getPizzas()
         dispatch(ACsetPending())    // .finally(()=>{dispatch(ACsetPending())})
         if(res.status === 200){
-            dispatch(ACsetPizzas(res.data));    // .then((response) => { dispatch(ACsetPizza(response.data));});
+            dispatch(ACsetPizzas(res.data.data.data))   // .then((response) => { dispatch(ACsetPizza(response.data));});
         }
     }
 }

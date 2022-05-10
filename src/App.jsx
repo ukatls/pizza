@@ -36,7 +36,7 @@ export default function App() {
         <Navbar />
         <Routes>
           <Route path="/" element={<Main />} />
-          <Route path="/aboute-us" element={<PublicRoute Component={About}/>} />
+          <Route path="/aboute-us" element={<About/>} />
           <Route path="/admin" element={<PublicRoute Component={Admin}/> } />
           <Route path="/dashboard" element={<PrivateRoute Component={Dashboard} />} />
           <Route path="/create-pizza" element={<PrivateRoute Component={CreatePizza} />} />

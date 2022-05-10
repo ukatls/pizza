@@ -1,9 +1,4 @@
 import axios from "axios";
-import { baseUrl, pizzaApi } from "../constants";
-
-const http = axios.create({
-  baseURL: baseUrl,
-});
 
 const api = axios.create({
   baseURL: "http://solid.lol/",
@@ -15,8 +10,9 @@ api.interceptors.request.use((config)=>{
 })
 
 export default {
-  getPizzas: () => http.get(pizzaApi),
+  getPizzas: () => api.get("getall/pizza"),
   createPizza: (data) =>
     api.post("add/pizza", data),
   auth: (data) => api.post("admin", data),
+  deletePizza: (id) => api.delete("delete/pizza/" + id)
 };
