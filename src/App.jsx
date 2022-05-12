@@ -14,6 +14,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { getPizzaAC } from "./redux/actionCreators";
 import { PrivateRoute } from "./pages/routes/PrivateRoute";
 import { PublicRoute } from "./pages/routes/PublicRoute";
+import Order from "./pages/order/Order";
 
 
 
@@ -37,6 +38,7 @@ export default function App() {
         <Routes>
           <Route path="/" element={<Main />} />
           <Route path="/aboute-us" element={<About/>} />
+          <Route path="/order" element={<Order/>} />
           <Route path="/admin" element={<PublicRoute Component={Admin}/> } />
           <Route path="/dashboard" element={<PrivateRoute Component={Dashboard} />} />
           <Route path="/create-pizza" element={<PrivateRoute Component={CreatePizza} />} />

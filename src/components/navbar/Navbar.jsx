@@ -1,10 +1,10 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import css from "./Navbar.module.css";
-import { useSelector } from 'react-redux';
+import { useSelector } from "react-redux";
 
 export default function Navbar() {
-  const basket = useSelector((state)=> state.basket.data)
+  const basket = useSelector((state) => state.basket.data);
   const [modal, setModal] = useState(false);
   const onModal = () => setModal(!modal);
   const getAllPrice = () => {
@@ -42,7 +42,7 @@ export default function Navbar() {
           <div>
             {basket.map((item) => (
               <div key={item.id} className={css.cardNavWrapper}>
-                <img src={item.imgUrl} alt="#" />
+                <img src={"http://solid.lol/public/" + item.file} alt="#" />
                 <div>
                   <h2 className={css.h2}>{item.name}</h2>
                   <h4>{item.description}</h4>
@@ -60,7 +60,9 @@ export default function Navbar() {
                 <p>Сумма заказа</p>
                 <p>{getAllPrice()} сом</p>
               </div>
-              <button className={css.button}>Заказать</button>
+              <Link to={"/order"}>
+                <button className={css.button}>Заказать</button>
+              </Link>
             </div>
           </div>
         </div>
